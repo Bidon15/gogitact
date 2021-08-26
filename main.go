@@ -12,5 +12,4 @@ func main() {
 	fmt.Println(number)
 	fmt.Println(meaning)
 
-	asdasdasdasdasd
 }
