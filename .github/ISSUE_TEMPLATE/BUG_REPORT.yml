@@ -18,23 +18,23 @@ body:
     attributes: 
       value: |
         Environment
-  - - - type: input
-        id: os
-        attributes:
-          label: OS
-          description: e.g. from /etc/os-release
-        validations:
-          required: true
-  - - - type: textarea
-        id: tools
-        attributes:
-          label: Install tools
-          description: e.g. docker, makefiles, etc.
-  - - - type: textarea
-        id: others
-        attributes:
-          label: Others
-          description: e.g. flag options, celestia config file changes, resources limitation(like cpu, ram limit, swap etc.)
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      description: e.g. from /etc/os-release
+    validations:
+      required: true
+  - type: textarea
+    id: tools
+    attributes:
+      label: Install tools
+      description: e.g. docker, makefiles, etc.
+  - type: textarea
+    id: others
+    attributes:
+      label: Others
+      description: e.g. flag options, celestia config file changes, resources limitation(like cpu, ram limit, swap etc.)
   - type: textarea
     id: steps
     attributes:
