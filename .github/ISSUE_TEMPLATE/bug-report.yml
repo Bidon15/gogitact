@@ -14,6 +14,8 @@ body:
     attributes: 
       label: Celestia Node version
       description: use 'celestia version' or 'git rev-parse --verify HEAD' if installed from source code
+    validations:
+      required: true
   - type: markdown
     attributes: 
       value: |
