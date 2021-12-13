@@ -1,33 +1,27 @@
-name: Go Test
+name: Go Vet Fmt Test
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
 
 jobs:
-  setup: 
-    name: Setup Go
+
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        go: ['1.16', '1.17']
     steps:
-      - uses: actions/checkout@v2
-      - name: set up go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{ matrix.go }}
-  test:
-    runs-on: ubuntu-latest
-    needs: setup
-    name: Run Test
-    steps:
-      - run: go test -v ./...
-  race:
-    runs-on: ubuntu-latest
-    needs: setup
-    name: Run Test with Race flag
-    steps:
-      - run: go test -v --race ./...
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '^1.15.0'
+
+    - name: Vet
+      run: go vet -v ./...
+
+    - name: Fmt
+      run: gofmt -s -l .
+
+    - name: Test
+      run: go test -v ./...
