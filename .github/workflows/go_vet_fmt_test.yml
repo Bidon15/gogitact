@@ -21,7 +21,7 @@ jobs:
           go-version: ${{ matrix.go }}
       - run: go test -v ./...
   race:
-   name: Run Tests with Race Condition
+    name: Run Tests with Race Condition
     runs-on: ubuntu-latest
     strategy:
       matrix:
