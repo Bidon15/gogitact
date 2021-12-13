@@ -1,0 +1,32 @@
+name: Go
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Run Test
+    steps:
+      - run: go test -v ./...
+  race:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Run Test with Race flag
+    steps:
+      - run: go test -v --race ./...
